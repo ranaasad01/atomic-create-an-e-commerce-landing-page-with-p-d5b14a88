@@ -81,7 +81,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
-              <span className="text-lg font-bold text-white tracking-tight">
+              <span className="text-lg font-bold text-white tracking-tight" style={{ color: "#fd0d19" }}>
                 {APP_NAME}
               </span>
             </Link>

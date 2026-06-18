@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -60,7 +60,7 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
             <div className="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900 tracking-tight">
+            <span className="text-lg font-bold text-gray-900 tracking-tight" style={{ color: "#fd0d19" }}>
               {APP_NAME}
             </span>
           </Link>

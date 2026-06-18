@@ -165,7 +165,7 @@ const categories = [
   { name: "Audio", icon: "🎧", count: 48, color: "from-violet-500 to-purple-600", image: "https://cdn-icons-png.flaticon.com/512/786/786373.png" },
   { name: "Accessories", icon: "⌚", count: 63, color: "from-amber-500 to-orange-600", image: "https://cdn-icons-png.flaticon.com/512/786/786373.png" },
   { name: "Kitchen", icon: "☕", count: 91, color: "from-emerald-500 to-teal-600", image: "https://panaxmart.com/cdn/shop/articles/Jewelry-laydown-two.jpg?v=1695801014&width=1920" },
-  { name: "Home Office", icon: "💡", count: 37, count2: 37, color: "from-blue-500 to-indigo-600", image: "https://hips.hearstapps.com/hmg-prod/images/bcacfded-198f-4492-899c-da0e4457a247.jpg" },
+  { name: "Home Office", icon: "💡", count: 37, color: "from-blue-500 to-indigo-600", image: "https://hips.hearstapps.com/hmg-prod/images/bcacfded-198f-4492-899c-da0e4457a247.jpg" },
   { name: "Wearables", icon: "🏃", count: 29, color: "from-rose-500 to-pink-600", image: "https://rnb.scene7.com/is/image/roomandboard/parsons_699588_25e1?size=2400,2400&scl=1" },
   { name: "Home", icon: "🏡", count: 74, color: "from-lime-500 to-green-600", image: "https://careevolution.com/wp-content/uploads/2025/04/Wearables-WP-hero3.jpg" },
 ];
@@ -670,32 +670,31 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {(filteredProducts.length > 0 ? filteredProducts : featuredProducts).map((product) => (
+            {filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ── DEALS / SALE ─────────────────────────────────────────────────── */}
-      <section id="deals" className="py-20 bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50">
+      {/* ── DEALS ────────────────────────────────────────────────────────── */}
+      <section id="deals" className="py-20 bg-gradient-to-br from-orange-50 to-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="text-center mb-12"
+            className="mb-12 text-center"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 bg-rose-100 text-rose-600 text-sm font-bold px-4 py-2 rounded-full mb-4">
-              <Zap className="w-4 h-4" />
-              Limited Time Deals
-            </motion.div>
+            <motion.p variants={fadeInUp} className="text-orange-500 font-semibold text-sm uppercase tracking-widest mb-3">
+              Limited Time
+            </motion.p>
             <motion.h2 variants={fadeInUp} className="text-4xl font-extrabold text-gray-900 mb-4">
-              Up to 43% off today
+              Today&apos;s best deals
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-gray-500 max-w-lg mx-auto">
-              Don't miss these hand-picked deals on our most-loved products. Prices this low won't last — grab yours before they're gone.
+            <motion.p variants={fadeInUp} className="text-gray-500 max-w-xl mx-auto">
+              Don&apos;t miss out on these exclusive offers. Limited stock available.
             </motion.p>
           </motion.div>
 
@@ -713,7 +712,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── STATS BANNER ─────────────────────────────────────────────────── */}
+      {/* ── STATS ────────────────────────────────────────────────────────── */}
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -732,8 +731,8 @@ export default function HomePage() {
                 <div className="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-6 h-6 text-orange-400" />
                 </div>
-                <div className="text-4xl font-extrabold text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-400 font-medium">{stat.label}</div>
+                <div className="text-3xl font-extrabold text-white mb-1">{stat.value}</div>
+                <div className="text-gray-400 text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -748,17 +747,14 @@ export default function HomePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="text-center mb-12"
+            className="mb-12 text-center"
           >
             <motion.p variants={fadeInUp} className="text-orange-500 font-semibold text-sm uppercase tracking-widest mb-3">
-              Customer Love
+              Testimonials
             </motion.p>
             <motion.h2 variants={fadeInUp} className="text-4xl font-extrabold text-gray-900 mb-4">
               What our customers say
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-gray-500 max-w-xl mx-auto">
-              Thousands of happy customers trust {APP_NAME} for quality, curation, and care. Here's what a few of them have to say.
-            </motion.p>
           </motion.div>
 
           <motion.div
@@ -772,27 +768,27 @@ export default function HomePage() {
               <motion.div
                 key={t.id}
                 variants={fadeInUp}
-                whileHover={{ y: -6 }}
-                className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-orange-100 hover:shadow-xl transition-all duration-300"
+                whileHover={{ y: -4 }}
+                className="bg-gray-50 rounded-2xl p-6 border border-gray-100"
               >
-                <div className="flex items-center gap-0.5 mb-5">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                <div className="flex items-center gap-0.5 mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="w-4 h-4 text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 leading-relaxed mb-6 text-sm">"{t.text}"</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
                 <div className="flex items-center gap-3">
                   <img
                     src={t.avatar}
                     alt={t.name}
-                    className="w-11 h-11 rounded-full object-cover border-2 border-orange-100"
+                    className="w-10 h-10 rounded-full object-cover"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src =
                         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face";
                     }}
                   />
                   <div>
-                    <div className="font-semibold text-gray-900 text-sm">{t.name}</div>
+                    <div className="text-sm font-semibold text-gray-900">{t.name}</div>
                     <div className="text-xs text-gray-500">{t.role}</div>
                   </div>
                 </div>
@@ -803,64 +799,144 @@ export default function HomePage() {
       </section>
 
       {/* ── NEWSLETTER ───────────────────────────────────────────────────── */}
-      <section id="newsletter" className="py-20 bg-gradient-to-br from-orange-500 to-amber-500">
+      <section className="py-20 bg-gradient-to-br from-orange-500 to-amber-500">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
+            className="flex flex-col items-center gap-6"
           >
-            <motion.div variants={scaleIn} className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
-              <Sparkles className="w-8 h-8 text-white" />
+            <motion.div variants={fadeInUp}>
+              <span className="inline-flex items-center gap-2 bg-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full">
+                <Sparkles className="w-4 h-4" />
+                Exclusive Offers
+              </span>
             </motion.div>
-            <motion.h2 variants={fadeInUp} className="text-4xl font-extrabold text-white mb-4">
+            <motion.h2 variants={fadeInUp} className="text-4xl font-extrabold text-white">
               Get 15% off your first order
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-orange-100 text-lg mb-8 max-w-xl mx-auto">
-              Join 50,000+ subscribers and be the first to hear about new arrivals, exclusive deals, and curated style guides.
+            <motion.p variants={fadeInUp} className="text-orange-100 max-w-md">
+              Subscribe to our newsletter and be the first to know about new arrivals, exclusive deals, and curated picks.
             </motion.p>
 
             {subscribed ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="inline-flex items-center gap-3 bg-white text-orange-600 font-semibold px-8 py-4 rounded-2xl shadow-xl"
+                className="flex items-center gap-3 bg-white rounded-2xl px-6 py-4"
               >
-                <Check className="w-5 h-5" />
-                You're in! Check your inbox for your discount code.
+                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-emerald-600" />
+                </div>
+                <span className="text-gray-900 font-semibold">You&apos;re subscribed! Check your inbox.</span>
               </motion.div>
             ) : (
               <motion.form
                 variants={fadeInUp}
                 onSubmit={handleSubscribe}
-                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+                className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
               >
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
+                  placeholder="Enter your email"
                   required
-                  className="flex-1 px-5 py-3.5 rounded-2xl text-gray-900 placeholder-gray-400 bg-white border-0 outline-none focus:ring-2 focus:ring-white/50 text-sm font-medium shadow-lg"
+                  className="flex-1 px-5 py-3.5 rounded-2xl text-gray-900 placeholder-gray-400 outline-none focus:ring-2 focus:ring-white/50 bg-white"
                 />
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   type="submit"
-                  className="bg-gray-900 hover:bg-gray-800 text-white font-semibold px-7 py-3.5 rounded-2xl transition-colors duration-200 shadow-lg whitespace-nowrap"
+                  className="bg-gray-900 hover:bg-gray-800 text-white font-semibold px-6 py-3.5 rounded-2xl transition-colors duration-200 whitespace-nowrap"
                 >
                   Subscribe
                 </motion.button>
               </motion.form>
             )}
 
-            <motion.p variants={fadeInUp} className="text-orange-200 text-xs mt-4">
+            <motion.p variants={fadeInUp} className="text-orange-100 text-xs">
               No spam, ever. Unsubscribe at any time.
             </motion.p>
           </motion.div>
         </div>
       </section>
+
+      {/* ── FOOTER ───────────────────────────────────────────────────────── */}
+      <footer className="bg-gray-900 text-gray-400 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-xl bg-orange-500 flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-white font-bold text-lg">{APP_NAME}</span>
+              </div>
+              <p className="text-sm leading-relaxed mb-4">
+                Thoughtfully curated products for modern living. Quality you can trust, style you&apos;ll love.
+              </p>
+              <div className="flex gap-3">
+                {["Twitter", "Instagram", "Pinterest"].map((social) => (
+                  <a
+                    key={social}
+                    href="#"
+                    className="w-9 h-9 rounded-xl bg-gray-800 hover:bg-orange-500 flex items-center justify-center transition-colors duration-200"
+                    aria-label={social}
+                  >
+                    <span className="text-xs font-bold text-gray-400 hover:text-white">
+                      {social[0]}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Links */}
+            {[
+              {
+                title: "Shop",
+                links: ["New Arrivals", "Best Sellers", "Sale", "All Products"],
+              },
+              {
+                title: "Company",
+                links: ["About Us", "Careers", "Press", "Blog"],
+              },
+              {
+                title: "Support",
+                links: ["FAQ", "Shipping Info", "Returns", "Contact Us"],
+              },
+            ].map((col) => (
+              <div key={col.title}>
+                <h4 className="text-white font-semibold mb-4 text-sm">{col.title}</h4>
+                <ul className="space-y-2">
+                  {col.links.map((link) => (
+                    <li key={link}>
+                      <a href="#" className="text-sm hover:text-orange-400 transition-colors duration-200">
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} {APP_NAME}. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-orange-400 transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-orange-400 transition-colors">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
